@@ -7,7 +7,12 @@ const io = require('socket.io')(server)
 app.db = db
 app.connections = 0
 
-io.origins(['http://192.168.1.10:3000', 'http://localhost:3000', 'https://blog-saude.herokuapp.com/'])
+io.origins([
+   'http://192.168.1.10:3000', 
+   'http://localhost:3000', 
+   'https://blog-saude.herokuapp.com:443',
+   'http://blog-saude.herokuapp.com:443'
+])
 
 io.on('connection', function(socket) {
    socket.emit('conn', {status: 200}) // emitir mensagem ao conectar
